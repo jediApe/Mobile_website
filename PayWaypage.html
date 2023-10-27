@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="linkPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 0.5rem;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Payment Page</h1>
+    <p>Click the button below to proceed:</p>
+    <button onclick="openPayWayWindow()" class="button">I'm better no more to see here !</button>
+
+    <script>
+        let payWayWindow;  // Declare the payWayWindow variable in the global scope
+
+        window.onload = function() {
+            // Open a new window with a blank page
+            payWayWindow = window.open('', 'PayWayWindow', 'width=600,height=400');
+
+            // Check if the window is already open, and if not, set its content
+            if (payWayWindow.location.href === 'about:blank') {
+                // Add the basic structure to the new window
+                payWayWindow.document.write('<html><head><title>Payment Page</title>');
+                // Include your external stylesheet
+                payWayWindow.document.write('<link rel="stylesheet" href="linkPage.css">');
+                payWayWindow.document.write('</head><body>');
+                payWayWindow.document.write('<style>');
+                payWayWindow.document.write('.button { display: none; }'); // Hide the button
+                payWayWindow.document.write('</style>');
+                payWayWindow.document.write('<h1>Welcome to the Payment Page</h1>');
+                payWayWindow.document.write('<p>Additional content and functionality can be added here.</p>');
+
+                // Add Stripe payment form directly in the new window
+                payWayWindow.document.write('<div id="stripe-payment-form">');
+                payWayWindow.document.write('    <label for="card-element">Enter your card details:</label>');
+                payWayWindow.document.write('    <div id="card-element">');
+                payWayWindow.document.write('        <!-- A Stripe Element will be inserted here. -->');
+                payWayWindow.document.write('    </div>');
+                payWayWindow.document.write('    <!-- Used to display form errors. -->');
+                payWayWindow.document.write('    <div id="card-errors" role="alert"></div>');
+                payWayWindow.document.write('    <button id="submit-payment" class="button">Submit Payment</button>');
+                payWayWindow.document.write('</div>');
+
+                // JavaScript to set up Stripe payment
+                payWayWindow.document.write('<script src="https://js.stripe.com/v3/"></script>');
+                payWayWindow.document.write('<script>');
+                payWayWindow.document.write('var stripe = Stripe("YOUR_STRIPE_PUBLISHABLE_KEY"); // Replace with your Stripe publishable key');
+                payWayWindow.document.write('var elements = stripe.elements();');
+                payWayWindow.document.write('var cardElement = elements.create("card");');
+                payWayWindow.document.write('cardElement.mount("#card-element");');
+                payWayWindow.document.write('var cardErrors = document.getElementById("card-errors");');
+                payWayWindow.document.write('var submitButton = document.getElementById("submit-payment");');
+                payWayWindow.document.write('submitButton.addEventListener("click", function(event) {');
+                payWayWindow.document.write('    event.preventDefault();');
+                payWayWindow.document.write('    stripe.createToken(cardElement).then(function(result) {');
+                payWayWindow.document.write('        if (result.error) {');
+                payWayWindow.document.write('            cardErrors.textContent = result.error.message;');
+                payWayWindow.document.write('        } else {');
+                payWayWindow.document.write('            // Send the token to your server to process the payment');
+                payWayWindow.document.write('            // Replace this with your own server-side code');
+                payWayWindow.document.write('            // var token = result.token;');
+                payWayWindow.document.write('            // Your server logic here');
+                payWayWindow.document.write('        }');
+                payWayWindow.document.write('    });');
+                payWayWindow.document.write('});');
+                payWayWindow.document.write('</script>');
+
+                // Close the HTML document for the new window
+                payWayWindow.document.write('</body></html>');
+            }
+
+            // Focus the window
+            payWayWindow.focus();
+        };
+    </script>
+</body>
+</html>

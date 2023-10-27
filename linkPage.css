@@ -1,0 +1,219 @@
+/* Reset some default styles */
+body,
+h1,
+h2,
+p,
+ul,
+li {
+    margin: 25px;
+    padding: 25px;
+}
+
+p {
+  font-size: 150%;
+}
+
+/* Set font and color styles */
+body {
+    font-family: Arial, sans-serif;
+    font-style: italic;
+    color: #212529;
+    font-size: 150%;
+}
+
+/* This only changes this particular animation duration */
+.animate__animated.animate__bounce {
+  --animate-duration: 2s;
+}
+
+/* This changes all the animations globally */
+:root {
+  --animate-duration: 800ms;
+  --animate-delay: 0.9s;
+}
+
+.my-element {
+  display: inline-block;
+  margin: 0 0.5rem;
+
+  animation: bounce; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s; /* don't forget to set a duration! */
+}
+
+/* Define navigation styles */
+nav {
+    background-color: #212529;
+    border-radius: 1rem;
+    color: black;
+    text-decoration: none;
+    font-style: italic;
+}
+
+
+
+/* Remove default button styles */
+.btn {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-style: italic;
+}
+
+
+/* Style the button */
+.btn-secondary {
+    color: #fff;
+    border-radius: 1rem;
+    
+}
+
+/* CSS code for hover effect */
+.hover-effect:hover {
+    /* Add your hover effect styles here */
+    /* For example: */
+    background-color: #f8f9fa;
+    /* change the background color */
+    color: #212529;
+    /* change the text color */
+    /* Add more styles as needed */
+}
+
+/* CSS code for font, border-style and effects */
+#content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.column {
+    width: 100%;
+    padding: 15px;
+    
+}
+
+
+
+
+#about,
+#contact,
+#ContactForm {
+  border-radius: 1rem;
+  background-color: #212529; /* Replace with your desired background color */
+  color: #f8f9fa;
+  
+}
+
+.bordered-heading {
+  border: 2px solid #007bff; /* You can change the color and thickness of the border */
+  border-radius: 1rem;
+  padding: 25px;
+  margin: 10;
+  display: inline-block; /* To make the border fit the text width */
+}
+
+
+/* Define main content styles */
+
+.button {
+    display: inline-block;
+    padding: 25px 300px;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    z-index: -1;
+}
+
+.button:hover::before {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 1;
+}
+
+h1 {
+    font-size: 45px;
+    font-style: italic;
+    color: #212529;
+    
+}
+
+.my-element {
+    display: inline-block;
+    margin: 0 0.5rem;
+
+    animation: bounce 2s;
+    /* referring directly to the animation's @keyframe declaration */
+    /* don't forget to set a duration! */
+}
+
+.column {
+    width: 30%;
+    padding: 15px;
+    text-decoration: none;
+}
+
+#ContactForm {
+    background-color: #f1f1f1;
+    color: #212529;
+    padding: 20px;
+    text-align: center;
+    border-radius: 1rem;
+  }
+  
+  #ContactForm h2 {
+    color: #007bff;
+  }
+  
+  #ContactForm form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #ContactForm label {
+    margin-bottom: 10px;
+  }
+  
+  #ContactForm input[type="text"],
+  #ContactForm input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #ContactForm button {
+    width: 200px;
+    padding: 10px;
+    font-size: 18px;
+    color: #212529;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #ContactForm button:hover {
+    background-color: #0056b3;
+  }
+  

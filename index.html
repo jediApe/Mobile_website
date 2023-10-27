@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="linkPage.css" href="PayWaypage.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Your other styles here */
+
+        /* Define custom animation classes for h1 elements */
+        .custom-animation1 {
+            animation: customAnimation1 1s ease-in-out forwards;
+        }
+
+        .custom-animation2 {
+            animation: customAnimation2 1s ease-in-out forwards;
+        }
+
+        /* Keyframes for custom animations */
+        @keyframes customAnimation1 {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes customAnimation2 {
+            0% {
+                opacity: 1;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <script>
+        var payWayWindow;
+
+        function openPayWayWindow() {
+            // Open a new window with the PayWaypage.html URL
+            payWayWindow = window.open('PayWaypage.html', 'PayWayWindow', 'width=600,height=400');
+
+            // Add an event listener to listen for messages from the PayWaypage
+            window.addEventListener('message', receiveMessage, false);
+        }
+
+        function receiveMessage(event) {
+            // Check the origin of the message (for security)
+            if (event.origin !== window.location.origin) {
+                return;
+            }
+
+            // Handle messages from PayWaypage
+            if (event.data === 'paymentSuccessful') {
+                // Perform actions when payment is successful
+                alert('Payment was successful!');
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Apply custom animations to your h1 elements -->
+    <h1 class="animate__animated custom-animation1">Welcome!</h1>
+    <style>
+        h1{
+            background-color: black;
+            color:white;
+            border-radius: 1rem;
+            border: 2px;
+            
+        }
+    </style>
+    <h1>To my website</h1>
+    
+
+    <!-- Your other content here -->
+
+    <main>
+        <section id="home">
+            
+            <h2  class="animate__animated custom-animation1"></h2>
+            <p>Welcome to the Home section of my mobile website.</p>
+
+            <nav>
+                <ul>
+                    <li><a href="#home" class="button">Home</a></li>
+                    <li><a href="#about" class="button">About</a></li>
+                    <li><a href="#contact" class="button">Contact</a></li>
+                    <li><a href="PayWaypage.html" class="button">Pay Now</a></li>
+                </ul>
+            </nav>
+        </section>
+        <style>
+            /* Base styles for the navigation */
+            nav {
+                text-align: center;
+            }
+        
+            ul {
+                list-style-type: none;
+                padding: 5;
+            }
+        
+            li {
+                display: inline;
+                margin: 0 10px;
+            }
+        
+            .button {
+                background-color: #007bff;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 0.5rem;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+        
+            /* Media query for smaller screens */
+            @media (max-width: 768px) {
+                li {
+                    display: block;
+                    margin: 10px 0;
+                }
+            }
+        </style>
+
+        <section id="social-media">
+            <h2>Twitter</h2>
+            <h2 class="bordered-heading">Instagram</h2>
+            <!-- Paste the Instagram embed code here -->
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/creativemind_group/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="max-width: 120px; border-radius: 10px; overflow: hidden;"></blockquote>
+            <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+                <div class="elfsight-app-598dd6ce-5c74-466c-80a3-d1c1c24b3864"></div>
+            
+                <section id="Pinterest">
+                    <h2>Pinterest</h2>
+                    <div class="button-container">
+                        <div class="bordered-heading" class="button pinterest-button" onclick="pinIt()">
+                            Share your idea's with the pin it button!
+                        </div>
+                    </div>
+                </section>
+                
+        </section>
+        
+                    <script>
+                        function pinIt() {
+                            // Replace this URL with the URL of the page you want to share on Pinterest
+                            var urlToShare = "https://www.pinterest.com/TheImperialCompany/http://127.0.0.1:50496/linkPage.html";
+                            var pinterestUrl = "https://www.pinterest.com/pin/create/button/?url=" + encodeURIComponent(urlToShare);
+                    
+                            // Open the Pinterest sharing URL in a new window
+                            window.open(pinterestUrl, "_blank");
+                        }
+                    </script>
+                    
+                </div>
+            </div>
+        </section>
+
+        </section>
+
+        <section id="about">
+            <center><h2>About Section</h2></center>
+            <p>This website is simply a where you can find my links, content & and others.
+                click the link in the contact section.</p>
+        </section>
+
+        <section id="contact">
+            <center><h2>Contact Section</h2></center>
+            <p>Feel free to contact me through the contact form on the right down below mobile website.</p>
+        </section>
+    </main>
+
+
+
+    <section id="ContactForm">
+        <h2>Contact Information</h2>
+        <form>
+            <label for="fname">First Name:</label><br>
+            <input type="text" id="fname" name="fname"><br>
+            <label for="lname">Last Name:</label><br>
+            <input type="text" id="lname" name="lname"><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br>
+            <br>
+            <button class="button">Submit</button>
+        </form>
+    </section>
+    
+      <br>
+
+      <style>
+
+        footer{
+            border-radius: 1rem;
+        }
+      </style>
+    <footer>
+        <center><p>© 2023 My Mobile Website. All rights reserved.</p></center>
+    </footer>
+    
+    <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="import android.os.java"></script>
+</body>
+</html>
